@@ -1,39 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Componentes de flutter'),
+        title: Text(
+          "Componentes de flutter",
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
       ),
       body: ListView(
-        children: const [
+        children: [
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Entradas'),
-            subtitle: Text('Diferentes widgets para entradas de Flutter'),
-            trailing: Icon(Icons.account_circle_outlined),
+            title: Text(
+              'Primer opción',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text('Diferentes widgets para entradas de flutter',
+                style: Theme.of(context).textTheme.bodySmall),
+            leading: const Icon(
+              Icons.app_settings_alt,
+              color: AppTheme.negro,
+            ),
+            trailing: const Icon(Icons.arrow_right),
           ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.list_alt_rounded),
-            title: Text('ListView.builder'),
-            subtitle: Text('Scroll infinito'),
-            trailing: Icon(Icons.arrow_circle_right),
+          const Divider(
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
-          Divider(),
           ListTile(
-            leading: Icon(Icons.notification_add),
+            leading: const Icon(Icons.add_location, color: AppTheme.negro),
+            title: Text(
+              'Scrooooooll',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
+            ),
+            subtitle: Text(
+              'Scroll infinito',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            trailing: const Icon(Icons.list_alt_rounded),
+          ),
+          const Divider(
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.admin_panel_settings_rounded,
+              color: AppTheme.negro,
+            ),
             title: Text(
               'Notificaciones',
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
             ),
-            subtitle: Text('Creación de notificaciones'),
-            trailing: Icon(Icons.screen_lock_portrait_sharp),
-          ),
-          Divider(),
+            subtitle: Text('Notificaciones',
+                style: Theme.of(context).textTheme.bodySmall),
+            trailing: const Icon(Icons.notification_add),
+          )
         ],
       ),
     );
