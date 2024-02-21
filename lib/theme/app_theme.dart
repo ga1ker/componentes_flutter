@@ -10,10 +10,11 @@ class AppTheme {
     scaffoldBackgroundColor: backColor,
     appBarTheme: const AppBarTheme(color: mainColor),
     textTheme: TextTheme(
+      titleLarge: GoogleFonts.aBeeZee(backgroundColor: mainColor),
       headlineLarge: GoogleFonts.nunito(
-        color: negro,
-        fontWeight: FontWeight.bold,
-      ),
+          color: negro,
+          fontWeight: FontWeight.bold,
+          backgroundColor: backColor),
       bodySmall: GoogleFonts.aBeeZee(
         color: mainColor,
         fontWeight: FontWeight.normal,

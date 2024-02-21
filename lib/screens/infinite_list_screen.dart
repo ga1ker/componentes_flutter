@@ -10,8 +10,9 @@ class InfiniteListScreen extends StatefulWidget {
 class _InfiniteListScreenState extends State<InfiniteListScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Infinitaaaaaa'),
+    return Center(
+      child: Text('Infinitaaaaaa',
+          style: Theme.of(context).textTheme.headlineLarge),
     );
   }
 }

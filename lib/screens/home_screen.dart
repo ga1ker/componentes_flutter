@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/screens/infinite_list_screen.dart';
+import 'package:practica3_componentes/screens/input_screen.dart';
+import 'package:practica3_componentes/screens/notifications_sceen.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,14 +13,14 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Componentes de flutter",
-          style: AppTheme.lightTheme.textTheme.headlineLarge,
+          style: AppTheme.lightTheme.textTheme.titleLarge,
         ),
       ),
       body: ListView(
         children: [
           ListTile(
             title: Text(
-              'Primer opción',
+              'Entradas',
               style: AppTheme.lightTheme.textTheme.headlineLarge,
             ),
             subtitle: Text('Diferentes widgets para entradas de flutter',
@@ -26,6 +29,12 @@ class HomeScreen extends StatelessWidget {
               Icons.app_settings_alt,
               color: AppTheme.negro,
             ),
+            onTap: () {
+              final ruta1 = MaterialPageRoute(builder: (context) {
+                return const InputsScreen();
+              });
+              Navigator.push(context, ruta1);
+            },
             trailing: const Icon(Icons.arrow_right),
           ),
           const Divider(
@@ -42,6 +51,12 @@ class HomeScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.bodySmall,
             ),
             trailing: const Icon(Icons.list_alt_rounded),
+            onTap: () {
+              final ruta2 = MaterialPageRoute(builder: (context) {
+                return const InfiniteListScreen();
+              });
+              Navigator.push(context, ruta2);
+            },
           ),
           const Divider(
             color: Color.fromARGB(255, 255, 255, 255),
@@ -58,6 +73,12 @@ class HomeScreen extends StatelessWidget {
             subtitle: Text('Notificaciones',
                 style: Theme.of(context).textTheme.bodySmall),
             trailing: const Icon(Icons.notification_add),
+            onTap: () {
+              final ruta3 = MaterialPageRoute(builder: (context) {
+                return const NotificationsScreen();
+              });
+              Navigator.push(context, ruta3);
+            },
           )
         ],
       ),

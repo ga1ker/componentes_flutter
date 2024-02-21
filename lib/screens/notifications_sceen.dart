@@ -5,8 +5,9 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Notificaciones'),
+    return Center(
+      child: Text('Notificaciones',
+          style: Theme.of(context).textTheme.headlineLarge),
     );
   }
 }

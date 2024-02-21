@@ -10,8 +10,11 @@ class InputsScreen extends StatefulWidget {
 class _InputsScreenState extends State<InputsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Entradas'),
+    return Center(
+      child: Text(
+        'Entradas',
+        style: Theme.of(context).textTheme.headlineLarge,
+      ),
     );
   }
 }
