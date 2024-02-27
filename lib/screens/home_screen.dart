@@ -62,9 +62,11 @@ class HomeScreen extends StatelessWidget {
             color: Color.fromARGB(255, 255, 255, 255),
           ),
           ListTile(
-            leading: const Icon(
-              Icons.admin_panel_settings_rounded,
-              color: AppTheme.negro,
+            leading: IconTheme(
+              data: AppTheme.lightTheme.iconTheme,
+              child: const Icon(
+                Icons.notification_add,
+              ),
             ),
             title: Text(
               'Notificaciones',

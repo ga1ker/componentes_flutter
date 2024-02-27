@@ -9,35 +9,80 @@ class InputsScreen extends StatefulWidget {
 }
 
 class _InputsScreenState extends State<InputsScreen> {
+  bool valueSwitch = false; // Inicia apagado
+  double valueSlider = 0.0;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+    return Scaffold(
+      appBar: AppBar(title: Text('Entradas')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            'Entradas',
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+          ),
+          entradaTexto(context),
+          entradaSwitch(),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: null,
+                child: Text('Regresar'),
+              ),
+              ElevatedButton(
+                onPressed: null,
+                child: Text('Ir a Data Screen'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextField entradaTexto(BuildContext context) {
+    return TextField(
+      style: Theme.of(context).textTheme.headlineMedium,
+      decoration: InputDecoration(
+        border: const UnderlineInputBorder(),
+        labelText: 'Escribe tu nombre: ',
+        labelStyle: AppTheme.lightTheme.textTheme.headlineLarge,
+      ),
+    );
+  }
+
+  Row entradaSwitch() {
+    return Row(
+      children: <Widget>[
         Text(
-          'Entradas',
-          style: AppTheme.lightTheme.textTheme.headlineLarge,
+          '¿te gusta flutter?',
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ElevatedButton(
-              onPressed: null,
-              child: Text(
-                'regresar',
-                style: AppTheme.lightTheme.textTheme.bodyMedium,
-              ),
-            ),
-            ElevatedButton(
-              onPressed: null,
-              child: Text(
-                'regresar a DataScreen',
-                style: AppTheme.lightTheme.textTheme.bodyMedium,
-              ),
-            ),
-          ],
+        const SizedBox(
+          width: 20.0,
+        ),
+        Switch(
+          value: valueSwitch,
+          onChanged: (value) {
+            setState(() {
+              valueSwitch = value;
+            });
+          },
         ),
       ],
     );
   }
+}
+
+Column entradaSlider() {
+  return Column(
+    children: <Widget>[
+      Text(
+        '¿qué tento te gusta florer?',
+        style: AppTheme.lightTheme.textTheme.headlineLarge,
+      ),
+    ],
+  );
 }
