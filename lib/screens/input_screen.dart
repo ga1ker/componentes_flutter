@@ -14,7 +14,7 @@ class _InputsScreenState extends State<InputsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Entradas')),
+      appBar: AppBar(title: const Text('Entradas')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -36,6 +36,14 @@ class _InputsScreenState extends State<InputsScreen> {
                 child: Text('Ir a Data Screen'),
               ),
             ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
           ),
         ],
       ),

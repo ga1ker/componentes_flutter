@@ -35,7 +35,11 @@ class HomeScreen extends StatelessWidget {
               });
               Navigator.push(context, ruta1);
             },
-            trailing: const Icon(Icons.arrow_right),
+            trailing: const CircularProgressIndicator(
+              color: AppTheme.mainColor,
+              backgroundColor: Color.fromARGB(255, 255, 0, 0),
+              strokeWidth: 9,
+            ),
           ),
           const Divider(
             color: Color.fromARGB(255, 255, 255, 255),
