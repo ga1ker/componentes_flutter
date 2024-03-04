@@ -32,7 +32,7 @@ class AppTheme {
         fontWeight: FontWeight.bold,
       ),
       bodySmall: GoogleFonts.aBeeZee(
-        color: mainColor,
+        color: negro,
         fontWeight: FontWeight.normal,
       ),
       bodyMedium: GoogleFonts.nunito(
