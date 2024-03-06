@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const mainColor = Color.fromRGBO(175, 210, 255, 1);
-  static const backColor = Color.fromARGB(255, 91, 151, 255);
+  static const backColor = Color.fromARGB(255, 193, 100, 255);
   static const accentColor = Color.fromARGB(255, 132, 255, 245);
   static const negro = Color.fromARGB(255, 0, 0, 0);
 
@@ -26,7 +26,7 @@ class AppTheme {
       ),
     ),
     textTheme: TextTheme(
-      titleLarge: GoogleFonts.nunito(backgroundColor: backColor),
+      titleLarge: GoogleFonts.nunito(),
       headlineLarge: GoogleFonts.nunito(
         color: negro,
         fontWeight: FontWeight.bold,
@@ -37,7 +37,6 @@ class AppTheme {
       ),
       bodyMedium: GoogleFonts.nunito(
         color: negro,
-        backgroundColor: mainColor,
       ),
     ),
   );

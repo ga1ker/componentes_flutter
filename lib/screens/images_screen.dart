@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
 
 class ImagesScreen extends StatefulWidget {
-  const ImagesScreen({super.key});
+  const ImagesScreen({Key? key}) : super(key: key);
 
   @override
   State<ImagesScreen> createState() => _ImagesScreenState();
@@ -15,13 +15,16 @@ class _ImagesScreenState extends State<ImagesScreen> {
       appBar: AppBar(
         title: Text(
           'Imagenes',
-          style: AppTheme.lightTheme.textTheme.headlineLarge,
+          style: AppTheme.lightTheme.textTheme.headline6,
         ),
       ),
-      body: Column(
-        children: [
-          imageCard(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            imageCard(),
+            imageWeb(),
+          ],
+        ),
       ),
     );
   }
@@ -31,10 +34,31 @@ class _ImagesScreenState extends State<ImagesScreen> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      child: const Image(
-        image: AssetImage(
-          'assets/imgs/porsche-model.png',
+      margin: EdgeInsets.all(20),
+      elevation: 10,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/imgs/ga1ker.jpg',
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Logo de galker',
+              ),
+            )
+          ],
         ),
+      ),
+    );
+  }
+
+  Widget imageWeb() {
+    return Center(
+      child: Image.network(
+        'https://img.asmedia.epimg.net/resizer/bCsmFOM_eeWCtG5tQ6XgzX-vVj4=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/53BQS3TQUJBVRJW6V6XQMU4CAU.jpg',
       ),
     );
   }
