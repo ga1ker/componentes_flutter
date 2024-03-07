@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_componentes/screens/home_screen.dart';
+import 'package:practica3_componentes/screens/images_screen.dart';
+import 'package:practica3_componentes/screens/notifications_sceen.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
 
 class InputsScreen extends StatefulWidget {
@@ -16,6 +19,42 @@ class _InputsScreenState extends State<InputsScreen> {
   double valueSlider = 0.0; // Inicia en 0
   int selectedIndex = 0;
   int selectedRadio = 0;
+  List screens = const [
+    HomeScreen(),
+    NotificationsScreen(),
+    ImagesScreen(),
+  ];
+
+  openScreen(int index, BuildContext context) {
+    setState(() {
+      MaterialPageRoute ruta =
+          MaterialPageRoute(builder: (context) => const HomeScreen());
+      MaterialPageRoute ruta1 =
+          MaterialPageRoute(builder: (context) => const NotificationsScreen());
+      MaterialPageRoute ruta2 =
+          MaterialPageRoute(builder: (context) => const ImagesScreen());
+
+      switch (index) {
+        case 0:
+          ruta = MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          );
+          break;
+        case 1:
+          ruta1 = MaterialPageRoute(
+              builder: (context) => const NotificationsScreen());
+          break;
+        case 2:
+          ruta2 = MaterialPageRoute(builder: (context) => const ImagesScreen());
+          break;
+      }
+      selectedIndex = index;
+      Navigator.push(context, ruta);
+      Navigator.push(context, ruta1);
+      Navigator.push(context, ruta2);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +63,7 @@ class _InputsScreenState extends State<InputsScreen> {
         'Entradas',
         style: TextStyle(color: const Color.fromARGB(255, 196, 192, 192)),
       )),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -45,6 +84,7 @@ class _InputsScreenState extends State<InputsScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         backgroundColor: Color.fromARGB(255, 180, 167, 197),
+        onTap: (index) => openScreen(index, context),
         items: const [
           BottomNavigationBarItem(
               icon:
@@ -55,8 +95,8 @@ class _InputsScreenState extends State<InputsScreen> {
                   color: AppTheme.negro),
               label: "Notificaciones"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_2_outlined, color: AppTheme.negro),
-              label: "Cuenta"),
+              icon: Icon(Icons.image, color: AppTheme.negro),
+              label: "Imagenes"),
         ],
         unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodyMedium,
       ),
@@ -74,13 +114,13 @@ class _InputsScreenState extends State<InputsScreen> {
     );
   }
 
-  Row entradaSwitch() {
-    return Row(
+  Column entradaSwitch() {
+    return Column(
       children: <Widget>[
         const FlutterLogo(),
         Text(
           '¿Si o no?',
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: AppTheme.lightTheme.textTheme.bodyLarge,
         ),
         const SizedBox(
           width: 25.0,
