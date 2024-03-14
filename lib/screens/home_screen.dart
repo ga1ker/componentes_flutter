@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:practica3_componentes/screens/images_screen.dart';
 import 'package:practica3_componentes/screens/infinite_list_screen.dart';
 import 'package:practica3_componentes/screens/input_screen.dart';
-import 'package:practica3_componentes/screens/notifications_sceen.dart';
+import 'package:practica3_componentes/screens/notifications_screen.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,26 +36,22 @@ class HomeScreen extends StatelessWidget {
               });
               Navigator.push(context, ruta1);
             },
-            trailing: const CircularProgressIndicator(
-              color: AppTheme.mainColor,
-              backgroundColor: Color.fromARGB(255, 255, 0, 0),
-              strokeWidth: 9,
-            ),
+            trailing: const Icon(Icons.input),
           ),
           const Divider(
             color: Color.fromARGB(255, 255, 255, 255),
           ),
           ListTile(
-            leading: const Icon(Icons.add_location, color: AppTheme.negro),
+            leading: const Icon(Icons.list, color: AppTheme.negro),
             title: Text(
-              'Scrooooooll',
+              'Lista Infinita',
               style: AppTheme.lightTheme.textTheme.headlineLarge,
             ),
             subtitle: Text(
               'Scroll infinito',
               style: Theme.of(context).textTheme.bodySmall,
             ),
-            trailing: const Icon(Icons.list_alt_rounded),
+            trailing: const Icon(Icons.input),
             onTap: () {
               final ruta2 = MaterialPageRoute(builder: (context) {
                 return const InfiniteListScreen();
@@ -70,7 +66,7 @@ class HomeScreen extends StatelessWidget {
             leading: IconTheme(
               data: AppTheme.lightTheme.iconTheme,
               child: const Icon(
-                Icons.notification_add,
+                Icons.notifications,
               ),
             ),
             title: Text(
@@ -79,7 +75,7 @@ class HomeScreen extends StatelessWidget {
             ),
             subtitle: Text('Notificaciones',
                 style: Theme.of(context).textTheme.bodySmall),
-            trailing: const Icon(Icons.notification_add),
+            trailing: const Icon(Icons.input),
             onTap: () {
               final ruta3 = MaterialPageRoute(builder: (context) {
                 return const NotificationsScreen();
@@ -94,12 +90,12 @@ class HomeScreen extends StatelessWidget {
               child: Icon(Icons.image),
             ),
             title: Text(
-              'Imagenes',
+              'Imágenes',
               style: AppTheme.lightTheme.textTheme.headlineLarge,
             ),
             subtitle: Text('Manejo de imagenes',
                 style: Theme.of(context).textTheme.bodySmall),
-            trailing: const Icon(Icons.arrow_circle_right_outlined),
+            trailing: const Icon(Icons.input),
             onTap: () {
               final ruta4 = MaterialPageRoute(builder: (context) {
                 return const ImagesScreen();

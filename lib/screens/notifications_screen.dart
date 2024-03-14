@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:practica3_componentes/screens/home_screen.dart';
+import 'package:practica3_componentes/screens/images_screen.dart';
 import 'package:practica3_componentes/screens/input_screen.dart';
-import 'package:practica3_componentes/screens/notifications_screen.dart';
 import 'package:practica3_componentes/theme/app_theme.dart';
-import 'package:transparent_image/transparent_image.dart';
 
-class ImagesScreen extends StatefulWidget {
-  const ImagesScreen({Key? key}) : super(key: key);
+class NotificationsScreen extends StatefulWidget {
+  const NotificationsScreen({super.key});
 
   @override
-  State<ImagesScreen> createState() => _ImagesScreenState();
+  State<NotificationsScreen> createState() => _NotificationsScreenState();
 }
 
-class _ImagesScreenState extends State<ImagesScreen> {
+class _NotificationsScreenState extends State<NotificationsScreen> {
   int selectedIndex = 0;
   List screens = const [
     HomeScreen(),
@@ -50,19 +49,9 @@ class _ImagesScreenState extends State<ImagesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Imágenes',
-          style: AppTheme.lightTheme.textTheme.headline6,
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            imageCard(),
-            imageWeb(),
-          ],
-        ),
-      ),
+          title: Text('Notifications',
+              style:
+                  TextStyle(color: const Color.fromARGB(255, 196, 192, 192)))),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         backgroundColor: Color.fromARGB(255, 44, 43, 44),
@@ -88,51 +77,6 @@ class _ImagesScreenState extends State<ImagesScreen> {
         ],
         unselectedLabelStyle: AppTheme.lightTheme.textTheme.bodyMedium,
       ),
-    );
-  }
-
-  Card imageCard() {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
-      ),
-      margin: EdgeInsets.all(20),
-      elevation: 10,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: Column(
-          children: [
-            Image.asset(
-              'assets/imgs/ga1ker.jpg',
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                'Logo de galker',
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Stack imageWeb() {
-    return Stack(
-      children: <Widget>[
-        const Center(
-          child: CircularProgressIndicator(),
-        ),
-        Center(
-          child: FadeInImage.memoryNetwork(
-            placeholder: kTransparentImage,
-            image:
-                'https://img.asmedia.epimg.net/resizer/bCsmFOM_eeWCtG5tQ6XgzX-vVj4=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/53BQS3TQUJBVRJW6V6XQMU4CAU.jpg',
-          ),
-          // Image.network(
-          // ), para arrastrar imagen de la web
-        ),
-      ],
     );
   }
 }

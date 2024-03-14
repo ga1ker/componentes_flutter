@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const mainColor = Color.fromRGBO(175, 210, 255, 1);
-  static const backColor = Color.fromARGB(255, 193, 100, 255);
-  static const accentColor = Color.fromARGB(255, 132, 255, 245);
+  static const backColor = Color.fromARGB(255, 100, 255, 247);
+  static const accentColor = Color.fromARGB(255, 255, 255, 255);
   static const negro = Color.fromARGB(255, 0, 0, 0);
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
@@ -27,6 +27,10 @@ class AppTheme {
     ),
     textTheme: TextTheme(
       titleLarge: GoogleFonts.nunito(),
+      titleMedium: GoogleFonts.nunito(
+        fontSize: 17,
+        fontWeight: FontWeight.bold,
+      ),
       headlineLarge: GoogleFonts.nunito(
         color: negro,
         fontWeight: FontWeight.bold,
